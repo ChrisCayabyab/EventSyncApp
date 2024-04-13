@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Evo Calendar</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Simple Modern-looking Event Calendar Plugin">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="/css/evo-calendar.min.css">
+    <!--MINIFED CSS-->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!--BOXICON-->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <!-- Link Font -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0"
+    />
+</head>
+
+<body>
+    <button id="open__nav-btn" style="display: none"></button>
+    <button id="close__nav-btn" style="display: none"></button>
+    <!--========================END OF NAV=================-->
+    <button class="chatbot-toggler" style="z-index: 999">
+      <span class="material-symbols-rounded">mode_comment</span>
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <div class="chatbot" style="z-index: 999">
+      <div class="headers">
+        <h2>Sakura</h2>
+        <span class="close-btn material-symbols-outlined">close</span>
+      </div>
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <span class="material-symbols-outlined">smart_toy</span>
+          <p>Hi there 👋<br />How can I help you today?</p>
+        </li>
+      </ul>
+      <div class="chat-input">
+        <textarea
+          placeholder="Sakura wasn't ready because she's shy"
+          spellcheck="false"
+          required
+        ></textarea>
+        <span id="send-btn" class="material-symbols-rounded">send</span>
+      </div>
+    </div>
+    <!--========================END OF CHAT=================-->
+
+    <div id="evoCalendar"></div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/evo-calendar.min.js"></script>
+<script>
+    $(document).ready(function() {
+        const eventTypes = Array('event', 'holiday', 'birthday');
+    $("#evoCalendar").evoCalendar({
+        format: "MM dd, yyyy",
+        titleFormat: "MM",
+        language: "en",
+        todayHighlight: true,
+        sidebarToggler: true,
+        eventHeaderFormat: "MM dd, yyyy",
+        firstDayOfWeek: 1,
+        calendarEvents: [{{#each eventList}}{
+            
+            id: "{{@index}}",
+            name: "{{this.name}}",
+            date: "{{this.date}}",
+            type: eventTypes[Math.floor(Math.random() * eventTypes.length)],
+            
+        },{{/each}}]
+    });
+
+
+});
+</script>
+<!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./js/APIcall.js" defer></script>
+    <script src="./js/script.js" defer></script>
+
+</body>
+
+</html>

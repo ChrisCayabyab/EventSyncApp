@@ -1,0 +1,28 @@
+{
+    "name": "EventSync",
+    "version": "1.0.0",
+    "description": "Node js google calendar api for evo-calendar",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Name",
+    "keywords": [
+        "google",
+        "calendar",
+        "api",
+        "nodejs",
+        "evo-calendar",
+        "evo-calendar-with-google-calendar-api",
+        "evo calendar with google calendar api"
+    ],
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.18.0",
+        "body-parser": "^1.20.1",
+        "dotenv": "^16.3.1",
+        "express": "^4.18.2",
+        "express-handlebars": "^6.0.6",
+        "googleapis": "^109.0.1"
+    }
+}
